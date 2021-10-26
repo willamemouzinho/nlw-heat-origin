@@ -85,9 +85,14 @@ body {
   place-items: center;
 }
 main {
-  background: url(../images/background-mobile.svg);
+  background: var(--gray800);
   width: 375px;
   height: 812px;
+}
+svg.gradientColor {
+  position: absolute;
+  z-index: var(--z1);
+  animation: slideDown 2s;
 }
 .container {
   max-width: 270px;
@@ -98,6 +103,9 @@ main {
   width: 10rem;
   margin: 11.5rem auto 1.5rem;
   position: relative;
+  transform: scale(1);
+  z-index: var(--z2);
+  /*animation: rotateAvatar 5s;*/
 }
 .photo {
   width: 10rem;
@@ -110,6 +118,7 @@ main {
   top: -15px;
   left: 0px;
   z-index: var(--z1);
+  animation: rotateStamp 10s linear infinite;
 }
 h1 {
   font-weight: 700;
@@ -156,4 +165,33 @@ ul a {
 }
 ul li a img {
   color: black;
+}
+
+/*== Animações ==*/
+/*.div {
+  animation: avatar 5s linear 2s infinite alternate;
+}
+@keyframes rotateAvatar {
+  from {
+    transform: scale(0, 0) rotate(-360deg);
+  }
+  to {
+    transform: scale(1,1) rotate(0deg);
+  }
+}*/
+@keyframes rotateStamp {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transfom: rotate(0deg);
+  }
+}
+@keyframes slideDown {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0%;
+  }
 }
