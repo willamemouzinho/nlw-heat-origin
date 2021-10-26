@@ -1,2 +1,2 @@
 # nlw-heat-origin
- Aplicação feita na trilha Origin do evento NLW - Heat utilizando os fundamentos do desenvolvimento web.
+Aplicação mobile feita na trilha Origin do NLW Heat utilizando os fundamentos do desenvolvimento web
