@@ -1,0 +1,159 @@
+/*== Variáveis ==*/
+:root {
+  /*========== Colors ==========*/
+  /* Change favorite color to match images */
+  /*Green dark 190 - Green 171 - Grren Blue 200*/
+  --hue-color: 190;
+
+  /* HSL color mode */
+  --first-color: hsl(var(--hue-color), 64%, 22%);
+  --first-color-second: hsl(var(--hue-color), 64%, 22%);
+  --first-color-alt: hsl(var(--hue-color), 64%, 15%);
+  --title-color: hsl(var(--hue-color), 64%, 18%);
+  --text-color: hsl(var(--hue-color), 24%, 35%);
+  --text-color-light: hsl(var(--hue-color), 8%, 60%);
+  --input-color: hsl(var(--hue-color), 24%, 97%);
+  --body-color: hsl(var(--hue-color), 100%, 99%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
+  --white: hsl(0, 0%, 100%);
+  --gray100: hsl(240, 9%, 89%);
+  --gray200: hsl(240, 7%, 78%);
+  --gray600: hsl(240, 6%, 21%);
+  --gray800: hsl(240, 30%, 7%);
+
+  /*== Font and typography ==*/
+  --bodyFont: 'Roboto', sans-serif;
+  --h1FontSize: 1.5rem;
+  --bodyFontSize: 0.875rem;
+  --bigFontSize: 1rem;
+
+  /*========== Font weight ==========*/
+  --fontNormal: 400;
+  --fontBold: 700;
+
+  /*========== Margenes Bottom ==========*/
+  --mb0-25: 0.25rem;
+  --mb0-5: 0.5rem;
+  --mb0-75: 0.75rem;
+  --mb1: 1rem;
+  --mb1-25: 1.25rem;
+  --mb1-5: 1.5rem;
+  --mb2: 2rem;
+  --mb2-5: 2.5rem;
+  --mb4: 4rem;
+
+  /*========== z index ==========*/
+  --z1: 1;
+  --z2: 10;
+  --z3: 100;
+
+  /*========== Hover overlay ==========*/
+  --img-transition: 0.3s;
+  --img-hidden: hidden;
+  --img-scale: scale(1.1);
+}
+
+/*
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: var(--bodyFont);
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  display: grid;
+  place-items: center;
+}
+main {
+  background: url(../images/background-mobile.svg);
+  width: 375px;
+  height: 812px;
+}
+.container {
+  max-width: 270px;
+  margin: 0 auto;
+  text-align: center;
+}
+.avatar {
+  width: 10rem;
+  margin: 11.5rem auto 1.5rem;
+  position: relative;
+}
+.photo {
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.stamp {
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  z-index: var(--z1);
+}
+h1 {
+  font-weight: 700;
+  color: var(--gray100);
+  margin-bottom: var(--mb0-5);
+  font-size: var(--h1FontSize);
+  line-height: 1.5rem;
+}
+a.gitHub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gray200);
+  font-size: var(--bigFontSize);
+  font-weight: var(--fontNormal);
+  line-height: 1.875rem;
+  margin-bottom: var(--mb2);
+  text-decoration: none;
+}
+a.gitHub:hover {
+  text-decoration: underline;
+}
+p {
+  color: var(--gray100);
+  margin-bottom: var(--mb4);
+  font-size: var(--bodyFontSize);
+  font-weight: var(--fontNormal);
+  line-height: 1.625rem;
+}
+ul {
+  display: flex;
+  list-style: none;
+  gap: var(--mb0-5);
+  justify-content: center;
+}
+ul a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gray600);
+  width: 48px;
+  height: 48px;
+}
+ul li a img {
+  color: black;
+}
