@@ -1,4 +1,4 @@
-const userSocialMedia = {
+const userNameSocialMedia = {
   github: 'willamemouzinho',
   youtube: 'willamemouzinho',
   instagram: 'willamemouzinho',
@@ -7,10 +7,22 @@ const userSocialMedia = {
 }
 function changeSocialMediaLinks() {
   for (let link of socialLinks.children) {
-    const social = link.getAttribute('id')
-    link.children[0].href = `https://${social}.com/${userSocialMedia[social]}`
-    alert(link.children[0].href);
-    
+    const socialName = link.getAttribute('id')
+    link.children[0].href = `https://${socialName}.com/${userNameSocialMedia[socialName]}`
+    //alert(link.children[0].href);
   }
 }
+
+function getGitHubProfileInfos() {
+  const urlProfile = `https://api.github.com/users/${userNameSocialMedia.github}`
+  fetch(urlProfile).then(response => response.json()).then(data => {
+    userPhotoGitHub.src = data.avatar_url
+    userNameGitHub.textContent = data.name
+    userLoginGitHub.textContent = data.login
+    userLinkGitHub.href = data.html_url
+    userBioGitHub.textContent = data.bio
+  })
+}
+
 changeSocialMediaLinks()
+getGitHubProfileInfos()
