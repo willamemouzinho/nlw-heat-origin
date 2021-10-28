@@ -17,10 +17,11 @@
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
   --white: hsl(0, 0%, 100%);
-  --gray100: hsl(240, 9%, 89%);
-  --gray200: hsl(240, 7%, 78%);
-  --gray600: hsl(240, 6%, 21%);
-  --gray800: hsl(240, 30%, 7%);
+  --gray100: rgb(225, 225, 230);
+  --gray200: rgb(196, 196, 204);
+  --gray600: rgb(50, 50, 56);
+  --gray800: rgb(32, 32, 36);
+  --black2: rgb(18, 18, 20);
 
   /*== Font and typography ==*/
   --bodyFont: 'Roboto', sans-serif;
@@ -82,21 +83,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body {
+  /*
   display: grid;
   place-items: center;
+  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 main {
   background: var(--gray800);
-  min-width: 375px;
   width: 100vw;
-  min-height: 100vh;
-  height: 812px;
+  height: 100vh;
 }
-svg.gradientColor {
+main::before {
+  content: '';
   position: absolute;
-  animation: slideDown 2s;
-  min-width: 375px;
+  background: url(../images/poligon.svg) no-repeat center/cover;
   width: 100vw;
+  min-height: 812px;
+  animation: slideDown 2s;
 }
 .container {
   max-width: 260px;
@@ -164,8 +170,11 @@ ul a {
   background: var(--gray600);
   width: 48px;
   height: 48px;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0px 2px 24px -8px rgba(1, 0, 8, 0.5);
+}
+ul a:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 142, 1) 20%, rgba(255, 205, 30, 1));
 }
 
 /*== Animações ==*/
@@ -194,5 +203,85 @@ ul a {
   }
   to {
     top: 0%;
+  }
+}
+@keyframes balanceSide {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform:  translateX(0px);
+  }
+
+  /*
+  matrix(0.866,0.5,-0.5,0.866,0,0);
+  0% {
+    transform: rotateY(90deg);
+  }
+  25% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  75% {
+    transform: rotateY(0deg);
+
+  }
+  100% {
+    transform: rotateY(90deg);
+  }
+  */
+}
+
+/*== Responsividade ==*/
+@media (min-width: 720px) {
+}
+@media (min-width: 960px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: url(../images/background-desktop.svg) no-repeat center/cover;
+    width: 100vw;
+    min-height: 820px;
+    height: 100vh;
+  }
+  main {
+    background: var(--gray800);
+    margin-top: 8.75rem;
+    width: 358px;
+    min-height: 540px;
+    height: 640px;
+    z-index: var(--z1);
+    border-radius: 6px;
+    animation: balanceSide 3s linear infinite;
+  }
+  main::before {
+    background: url(../images/mask-desktop.svg) no-repeat center/cover;
+    width: 358px;
+    min-height: 540px;
+    /*animation: slideDown 2s;*/
+    animation: none;
+    z-index: var(--z2);
+    border-radius: 6px;
+  }
+  .cordao {
+    position: absolute;
+    background: url(../images/cordao.svg) no-repeat center/cover;
+    top: 0;
+    width: 80px;
+    height: 164px;
+    z-index: var(--z3);
+  }
+  .container {
+    max-width: 260px;
+  }
+  .avatar {
+    margin: 4.5rem auto 1.5rem;
+    z-index: var(--z2);
+  }
+  p {
+    margin-bottom: var(--mb2-5);
   }
 }
