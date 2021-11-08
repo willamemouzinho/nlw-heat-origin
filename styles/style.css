@@ -1,21 +1,12 @@
 /*== Variáveis ==*/
 :root {
-  /*========== Colors ==========*/
-  /* Change favorite color to match images */
-  /*Green dark 190 - Green 171 - Grren Blue 200*/
+  /*== Colors ==*/
   --hue-color: 190;
 
   /* HSL color mode */
   --first-color: hsl(var(--hue-color), 64%, 22%);
   --first-color-second: hsl(var(--hue-color), 64%, 22%);
-  --first-color-alt: hsl(var(--hue-color), 64%, 15%);
-  --title-color: hsl(var(--hue-color), 64%, 18%);
-  --text-color: hsl(var(--hue-color), 24%, 35%);
-  --text-color-light: hsl(var(--hue-color), 8%, 60%);
-  --input-color: hsl(var(--hue-color), 24%, 97%);
-  --body-color: hsl(var(--hue-color), 100%, 99%);
-  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
+
   --white: hsl(0, 0%, 100%);
   --gray100: rgb(225, 225, 230);
   --gray200: rgb(196, 196, 204);
@@ -29,11 +20,11 @@
   --bodyFontSize: 0.875rem;
   --bigFontSize: 1rem;
 
-  /*========== Font weight ==========*/
+  /*== Font weight ==*/
   --fontNormal: 400;
   --fontBold: 700;
 
-  /*========== Margenes Bottom ==========*/
+  /*== Margenes Bottom ==*/
   --mb0-25: 0.25rem;
   --mb0-5: 0.5rem;
   --mb0-75: 0.75rem;
@@ -44,31 +35,12 @@
   --mb2-5: 2.5rem;
   --mb4: 4rem;
 
-  /*========== z index ==========*/
+  /*== z index ==*/
   --z0: 0;
   --z1: 1;
   --z2: 10;
   --z3: 100;
-
-  /*========== Hover overlay ==========*/
-  --img-transition: 0.3s;
-  --img-hidden: hidden;
-  --img-scale: scale(1.1);
 }
-
-/*
-@media screen and (min-width: 968px) {
-  :root {
-    --biggest-font-size: 4rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.75rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: 0.875rem;
-    --smaller-font-size: 0.813rem;
-  }
-}
-*/
 
 * {
   margin: 0;
@@ -78,7 +50,6 @@
 }
 html,
 body {
-  height: 100%;
   font-family: var(--bodyFont);
   -webkit-font-smoothing: antialiased;
 }
@@ -114,7 +85,6 @@ main::before {
   width: 10rem;
   margin: 11.5rem auto 1.5rem;
   position: relative;
-  /*animation: rotateAvatar 5s;*/
 }
 .photo {
   width: 10rem;
@@ -129,7 +99,8 @@ main::before {
   animation: rotateStamp 10s linear infinite;
 }
 h1 {
-  font-weight: 700;
+  font-weight: var(--fontBold);
+  letter-spacing: 0.5px;
   color: var(--gray100);
   margin-bottom: var(--mb0-5);
   font-size: var(--h1FontSize);
@@ -171,24 +142,25 @@ ul a {
   width: 48px;
   height: 48px;
   border-radius: 6px;
-  box-shadow: 0px 2px 24px -8px rgba(1, 0, 8, 0.5);
+  box-shadow: 0px 2px 24px -8px rgba(1, 0, 8, 0.3);
 }
 ul a:hover {
-  background: linear-gradient(135deg, rgba(255, 0, 142, 1) 20%, rgba(255, 205, 30, 1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 142, 1) 20%,
+    rgba(255, 205, 30, 1)
+  );
 }
 
 /*== Animações ==*/
-/*.div {
-  animation: avatar 5s linear 2s infinite alternate;
-}
 @keyframes rotateAvatar {
   from {
     transform: scale(0, 0) rotate(-360deg);
   }
   to {
-    transform: scale(1,1) rotate(0deg);
+    transform: scale(1, 1) rotate(0deg);
   }
-}*/
+}
 @keyframes rotateStamp {
   from {
     transform: rotate(360deg);
@@ -205,63 +177,33 @@ ul a:hover {
     top: 0%;
   }
 }
-@keyframes balanceSide {
-  from {
-    transform: translateX(-200px);
-  }
-  to {
-    transform:  translateX(0px);
-  }
-
-  /*
-  matrix(0.866,0.5,-0.5,0.866,0,0);
-  0% {
-    transform: rotateY(90deg);
-  }
-  25% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(90deg);
-  }
-  75% {
-    transform: rotateY(0deg);
-
-  }
-  100% {
-    transform: rotateY(90deg);
-  }
-  */
-}
 
 /*== Responsividade ==*/
-@media (min-width: 720px) {
-}
-@media (min-width: 960px) {
+@media (min-width: 425px) {
   body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     background: url(../images/background-desktop.svg) no-repeat center/cover;
     width: 100vw;
-    min-height: 820px;
-    height: 100vh;
+    min-height: 100vh;
   }
   main {
     background: var(--gray800);
-    margin-top: 8.75rem;
+    margin-top: 3.75rem;
+    margin-bottom: 3.75rem;
     width: 358px;
     min-height: 540px;
     height: 640px;
     z-index: var(--z1);
     border-radius: 6px;
     animation: balanceSide 3s linear infinite;
+    animation: rotateAvatar 5s;
   }
   main::before {
     background: url(../images/mask-desktop.svg) no-repeat center/cover;
     width: 358px;
     min-height: 540px;
-    /*animation: slideDown 2s;*/
     animation: none;
     z-index: var(--z2);
     border-radius: 6px;
@@ -272,7 +214,9 @@ ul a:hover {
     top: 0;
     width: 80px;
     height: 164px;
+    margin-top: -5rem;
     z-index: var(--z3);
+    animation: slideDown 6s;
   }
   .container {
     max-width: 260px;
@@ -284,4 +228,8 @@ ul a:hover {
   p {
     margin-bottom: var(--mb2-5);
   }
+}
+@media (min-width: 720px) {
+}
+@media (min-width: 960px) {
 }
